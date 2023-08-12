@@ -1,0 +1,173 @@
+
+.yours {
+    font-size: 25px;
+    text-transform: uppercase;
+    color: #7a6426;
+    text-align: center;
+    text-decoration: overline;
+    margin-top: 40px;
+}
+
+.textAbout {
+    width: 55%;
+    padding: 20px 50px 20px 50px;
+    overflow-wrap: break-word;
+    margin: 50px auto;
+    text-align: center;
+    text-indent: 30px;
+    line-height: 22px;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    font-family: serif;
+}
+
+.textAbout1 {
+    width: 35%;
+    padding: 20px 50px 20px 50px;
+    overflow-wrap: break-word;
+    margin: 80px auto;
+    text-align: center;
+    text-indent: 30px;
+    line-height: 22px;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    font-family: serif;
+}
+
+.editBtn {
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 10px 30px;
+    margin: 10px 210px;
+    border: 1px solid rgb(123, 93, 179);
+    background-color: #dad4e9;
+    font-style: italic;
+    max-width: 70%;
+    color: #000;
+    overflow-wrap: break-word;
+    transition: .5s ease;
+}
+
+
+.editBtn:hover {
+    background-color: #9590a2;
+    color: #fff;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.error{
+    color: red;
+    overflow-wrap: break-word;
+}
+
+#service{
+    padding: 15px 80px;
+}
+
+.form1{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+
+.title2{
+    color: #7a6426;
+    font-size: 28px;
+    font-family: 'Playfair Display',"Times New Roman",Times,Baskerville,Georgia,serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.container{
+    width: 45%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px 30px;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.container form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 25px 12px 25px;
+}
+
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(50% - 20px);
+
+}
+
+.user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 14px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.confirmation{
+    color: red;
+    overflow-wrap: break-word;
+}
+
+.input-box a{
+    color: #672083;
+    overflow-wrap: break-word;
+}
+
+.input-box em{
+    margin: auto 120px;
+}
+
+.input-box a:hover{
+    color: #b3a2cf;
+    overflow-wrap: break-word;
+}
+
+
+.user-details .input-box input:focus{
+    border-color: #9b59b6;
+}
+
+form .button{
+    width: 40%;
+    height: 46px;
+    margin: auto;
+    padding: 15px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #eae0f5, #9b59b6);
+}
+
+form .button input:hover{
+    background: linear-gradient(-135deg, #f2eafb, #9b59b6);
+    cursor: pointer;
+}

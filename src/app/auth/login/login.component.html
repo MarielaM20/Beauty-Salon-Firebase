@@ -1,0 +1,61 @@
+<section class="form1">
+    <div class="container">
+        <h2 class="title2">Login</h2>
+
+        <form #form="ngForm" (ngSubmit)="loginHandler(form)">
+            <div class="user-details">
+                
+                <!-- <div class="input-box">
+                    <label for="name" class="details">Name</label>
+                    <input #name="ngModel" ngModel type="name" name="name" id="name"
+                        placeholder="Enter your name..." required>
+
+                    <ng-container *ngIf="name">
+                        <p class="error" *ngIf="name.errors?.['required']">
+                            Name is required!
+                        </p>
+                    </ng-container>
+                </div> -->
+
+                <div class="input-box">
+                    <label for="email" class="details">Email</label>
+                    <input #email="ngModel" ngModel type="email" name="email" id="email"
+                        placeholder="Enter your email..." required [appEmail]="['bg', 'com']">
+
+                    <ng-container *ngIf="email">
+                        <p class="error" *ngIf="email.errors?.['required']">
+                            Email is required!
+                        </p>
+                        <p class="error" *ngIf="email.errors?.['emailValidator']">
+                            Email is not valid!
+                        </p>
+                    </ng-container>
+                </div>
+
+                <div class="input-box">
+                    <label for="password" class="details">Password</label>
+                    <input #password="ngModel" ngModel type="password" name="password" id="password"
+                        placeholder="Enter your password..." required [minlength]="6">
+
+                    <ng-container *ngIf="password">
+                        <p class="error" *ngIf="password.errors?.['required']">
+                            Password is required!
+                        </p>
+                        <p class="error" *ngIf="password.errors?.['minlength']">
+                            Password must be at least 6 characters!
+                        </p>
+                    </ng-container>
+
+                </div>
+            </div>
+
+            <div class="input-box1">
+                <p>You still haven't an account? <a routerLink="/auth/register">Register</a></p>
+            </div>
+
+            <div class="button">
+                <input [disabled]="form.invalid" type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+</section>

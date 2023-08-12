@@ -1,0 +1,105 @@
+
+.form1{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+
+.title2{
+    color: #7a6426;
+    font-size: 28px;
+    font-family: 'Playfair Display',"Times New Roman",Times,Baskerville,Georgia,serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.container{
+    width: 45%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px 30px;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.container form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 25px 12px 25px;
+}
+
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(50% - 20px);
+
+}
+
+.user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 14px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.error{
+    color: red;
+    overflow-wrap: break-word;
+}
+
+.input-box1 p{
+    text-align: center;
+}
+
+.input-box a{
+    color: #672083;
+    overflow-wrap: break-word;
+}
+
+.input-box1 a:hover{
+    color: #b3a2cf;
+    overflow-wrap: break-word;
+}
+
+
+.user-details .input-box input:focus{
+    border-color: #9b59b6;
+}
+
+form .button{
+    width: 40%;
+    height: 46px;
+    margin: auto;
+    padding: 15px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #eae0f5, #9b59b6);
+}
+
+form .button input:hover{
+    background: linear-gradient(-135deg, #f2eafb, #9b59b6);
+    cursor: pointer;
+}

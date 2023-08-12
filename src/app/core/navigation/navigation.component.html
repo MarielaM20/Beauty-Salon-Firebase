@@ -1,0 +1,50 @@
+<div class="menu-header">
+    <i class="fa fa-bars"></i>
+</div>
+
+<div class="menu-content">
+
+    <nav>
+        <ng-template #loggedInTemplate>
+            <ul>
+                <li class="menu-img"><a routerLink="/"><img src="../../../assets/Images/logo1.png" alt="logo"></a></li>
+                <li class="menu"><a class="dropbtn">Services <i class="fa fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a routerLink="/views/manicure">Manicure</a></li>
+                        <li><a routerLink="/views/makeup">Makeup</a></li>
+                        <li><a class="dropbtn2">Hairdressing <i class="fa fa-chevron-right right"></i><i
+                                    class="fa fa-chevron-down down"></i></a>
+                            <ul class="dropdown2">
+                                <li><a routerLink="/views/haircut">Haircut</a></li>
+                                <li><a routerLink="/views/haircoloring">Hair Coloring</a></li>
+                                <li><a routerLink="/views/hairstyles">Hairstyles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <li class="menu"><a routerLink="/views/portfolio">Portfolio</a></li>
+                <li class="menu"><a routerLink="/views/contacts">Contacts</a></li>
+
+                <li class="menu"><i><a routerLink="/auth/profile">{{user?.firstName}}'s profile</a></i></li>
+                <li class="menu"><i><a routerLink="/auth/logout">Logout</a></i></li>
+
+            </ul>
+        </ng-template>
+
+
+        <ng-template #loggedOutTemplate>
+            <ul>
+                <li class="menu-img"><a routerLink="/"><img src="../../../assets/Images/logo1.png" alt="logo"></a></li>
+                <li class="menu"><a routerLink="/views/portfolio">Portfolio</a></li>
+                <li class="menu"><a routerLink="/views/contacts">Contacts</a></li>
+
+                <li class="menu"><i><a routerLink="/auth/login">Login</a></i></li>
+                <li class="menu"><i><a routerLink="/auth/register">Register</a></i></li>
+            </ul>
+        </ng-template>
+
+        <ng-container *ngTemplateOutlet="isLoggedIn ? loggedInTemplate : loggedOutTemplate"></ng-container>
+
+    </nav>
+
+</div>

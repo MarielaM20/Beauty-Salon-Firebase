@@ -1,0 +1,30 @@
+.mainbox {
+    margin: auto;
+    height: 550px;
+    width: 550px;
+    position: relative;
+}
+
+.err {
+    color: #312673;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11rem;
+    margin: 20px;
+}
+
+
+.msg {
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+    color: #2c0eb0;
+}
+
+a:hover {
+    text-decoration: underline;
+}

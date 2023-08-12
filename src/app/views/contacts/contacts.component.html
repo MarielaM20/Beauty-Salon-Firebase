@@ -1,0 +1,93 @@
+<section class="map_comment">
+  <h4 class="title1">Contacts</h4>
+
+  <div id="contact-section">
+    <div class="contact-form">
+
+      <aside class="contacts">
+        <a href="https://goo.gl/maps/gJ7qdJm5bP7HWPqR8"><img src="../../../assets/Images/location.png"><span
+            class="form-info"> 6th Septemvri Blvd. Center, Plovdiv</span></a><br>
+        <a href="#"><img src="../../../assets/Images/phone.png"><span class="form-info"> +359878888888</span></a><br>
+        <a href="#"><img src="../../../assets/Images/email.png"><span class="form-info">
+            Style_Beauty@gmail.com</span></a>
+      </aside>
+
+      <aside>
+        <h2>Send us a comment HERE <img src="../../../assets/Images/email.png"></h2>
+
+        <form [formGroup]="form" (ngSubmit)="contactHandler()">
+          <div class="user-details">
+            <div class="input-box">
+              <label for="firstName">First name:</label>
+              <input class="input-error" type="text" formControlName="firstName" id="firstName"
+                placeholder="Enter your first name...">
+
+              <ng-container *ngIf="form.get('firstName')?.touched">
+                <p class="error" *ngIf="form.get('firstName')?.errors?.['required']">
+                  First name is required!
+                </p>
+              </ng-container>
+
+            </div>
+            <div class="input-box">
+              <label for="lastName">Last name:</label>
+              <input class="input-error" type="text" formControlName="lastName" id="lastName"
+                placeholder="Enter your last name...">
+
+              <ng-container *ngIf="form.get('lastName')?.touched">
+                <p class="error" *ngIf="form.get('lastName')?.errors?.['required']">
+                  Last name is required!
+                </p>
+              </ng-container>
+
+            </div>
+            <div class="input-box">
+              <label for="email">Email:</label>
+              <input type="email" formControlName="email" id="email" placeholder="Enter your email...">
+
+              <ng-container *ngIf="form.get('email')?.touched">
+                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                  Email is required!
+                </p>
+                <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">
+                  Email is not valid!
+                </p>
+              </ng-container>
+
+            </div>
+
+            <div class="input-box">
+              <label for="comment">Comment:</label>
+              <input type="text" formControlName="comment" id="comment" placeholder="Enter your comment...">
+
+              <ng-container *ngIf="form.get('comment')?.touched">
+                <p class="error" *ngIf="form.get('comment')?.errors?.['required']">
+                  Comment is required!
+                </p>
+              </ng-container>
+
+
+            </div>
+
+          </div>
+
+          <div class="submit">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+
+
+      </aside>
+
+    </div>
+  </div>
+
+  <article class="map">
+    <h4 class="title1">You can find us HERE<i class="fa fa-chevron-down"></i></h4>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2957.9176503756375!2d24.754873!3d42.152049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd198d911fe79%3A0x97c69affdbdf9bd5!2zU2Fsb25TdXppIC0g0YTRgNC40LfRjNC-0YDRgdC60Lgg0Lgg0LrQvtC30LzQtdGC0LjRh9C10L0g0YHQsNC70L7QvQ!5e0!3m2!1sbg!2sbg!4v1652990611823!5m2!1sbg!2sbg"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </article>
+
+</section>

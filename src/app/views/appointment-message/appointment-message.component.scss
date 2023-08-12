@@ -1,0 +1,80 @@
+.about1 {
+    font-size: 35px;
+    text-transform: uppercase;
+    color: #7a6426;
+    text-align: center;
+    text-decoration: underline;
+    margin: 50px 0;
+}
+
+.about {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #059f0f;
+    text-align: center;
+    font-style:italic;
+    text-decoration: underline;
+
+    width: 65%;
+    padding: 20px 50px 20px 50px;
+    overflow-wrap: break-word;
+    margin: 50px auto;
+    text-indent: 30px;
+    line-height: 22px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    font-family: serif;
+}
+
+.textAbout {
+    width: 55%;
+    padding: 20px 50px 20px 50px;
+    overflow-wrap: break-word;
+    margin: 50px auto;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 22px;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    font-family: serif;
+}
+
+
+.map .address-info {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-indent: 30px;
+}
+
+
+.address-info span {
+    color: #000;
+    line-height: 35px;
+    font-size: 1.3em;
+    text-shadow: 0.4px 0.4px #efecec;
+    overflow-wrap: break-word;
+}
+
+.map iframe {
+    width: 100%;
+    height: 280px;
+    margin-top: 25px;
+}
+
+
+h4 {
+    color: #7a6426;
+    font-size: 28px;
+    font-family: 'Playfair Display', "Times New Roman", Times, Baskerville, Georgia, serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.map h4 {
+    text-transform: none;
+}

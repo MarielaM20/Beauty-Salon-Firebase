@@ -1,0 +1,301 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.title1{
+    color: #7a6426;
+    font-size: 28px;
+    font-family: 'Playfair Display',"Times New Roman",Times,Baskerville,Georgia,serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.container1 .heading{
+  width: 50%;
+  padding-bottom: 50px;
+}
+.container1 .heading h3{
+    font-size: 2em;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    overflow-wrap: break-word;
+    color: #7a6426;
+}
+
+.container1 .heading h2{
+    overflow-wrap: break-word;
+}
+
+.container1 .heading span{
+  font-weight: 100;
+  color: #000;
+  font-size: 25px;
+}
+
+.container1{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 50px 70px 0 70px;
+}
+
+.container1 .box{
+ display: flex;
+ margin-left: 3%;
+}
+
+.container1 .box .dream{
+  width: 33%;
+}
+
+.container1 .box .dream img{
+  width: 90%;
+  padding-bottom: 30px;
+  border-radius: 15px;
+}
+
+.container1 a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+button{
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 15px 60px 10px 75px;
+  margin-bottom: 4%;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  font-style: italic;
+  max-width: 70%;
+  color: #fff;
+  margin-bottom: 20px;
+
+}
+button:after{
+  content: "";
+  background-color: #333;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+button:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+
+.dream {
+  position: relative;
+  width: 50%;
+}
+
+.img {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.dream:hover img {
+  opacity: 0.3;
+}
+
+.dream:hover .middle {
+  opacity: 1;
+}
+
+
+@media (min-width: 1241px){
+    ul li img {
+        width: 40%;
+        margin-top: 6%;
+    }
+}
+@media (min-width: 1500px){
+    ul li img {
+        width: 28%;
+        margin-top: 2%;
+    }
+}
+
+@media(max-width: 1050px){
+    ul li img{
+        width: 70%;
+        margin-top:4%;
+    }
+    .container{
+        width: 60%;
+    }
+}
+
+@media(max-width: 955px){
+    ul li img{
+        width: 80%;
+        margin:10%;
+    }
+}
+@media(max-width: 890px){
+    ul li img{
+        width: 90%;
+        margin:15%;
+    }
+}
+@media(max-width: 870px){
+    ul li img{
+        width: 95%;
+        margin:20% 0;
+    }
+}
+
+@media(max-width: 868px){
+    .menu-header{
+        display: block;
+        background: #272727;
+        text-align: right;
+        padding: 10px;
+    }
+
+    ul{
+        display: block;
+        width: 100%;
+    }
+    ul li{
+        text-align: center;
+    }
+    ul li img{
+        width: 20%;
+        margin: 0;
+    }
+    .time p{
+        padding-bottom: 4%;
+    }
+
+    .dropdown,.dropdown2{
+        position: relative;
+        left: 0;
+        top: 0;
+        transition: none;
+        visibility: visible;
+        display: none;
+        z-index: 1;
+    }
+    .display{
+        display: block;
+    }
+    .dropdown li:hover .dropdown2{
+        left: 0;
+    }
+    .dropbtn li:hover{
+        visibility: visible;
+    }
+    .menu-content{
+        display: none;
+    }
+
+    .fa-bars{
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .down{
+        display: inline-block;
+    }
+    .right{
+        display: none;
+    }
+
+    ul li {
+    text-align: center;
+    display: inline;
+    }
+}
+
+
+@media(max-width: 768px){
+    .container1 .box .dream img {
+        padding-bottom: 35px;
+        width: 90%;
+        margin-left: 4%;
+    }
+
+    .container1 .box .dream{
+        width: 100%;
+    }
+
+    .container{
+        max-width: 75%;
+        margin-bottom: 5%;
+    }
+    form .user-details .input-box{
+        width: 100%;
+    }
+    form .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+}
+
+@media (max-width: 600px) {
+    ul li img{
+        width: 20%;
+    }
+    .container1 .box{
+        display: block;
+    }
+    .container1 .heading h3{
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 400px){
+    .container1 button {
+        font-size: 0.7em;
+        padding: 8px;
+        padding: 10px 34px;
+        margin: 10px;
+        margin-bottom: 40px;
+    }
+    ul li img{
+        width: 80px;
+    }
+}
+
+@media (max-width: 300px) {
+    .title1{
+        font-size: 18px;
+        text-align: center;
+        overflow-wrap: break-word;
+        margin-bottom: 2%;
+    }
+    footer p{
+        overflow-wrap: break-word;
+    }
+}
