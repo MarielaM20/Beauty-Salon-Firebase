@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
+import { Database, set, ref, update, onValue } from '@angular/fire/database';
+
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
@@ -32,13 +34,21 @@ connectAuthEmulator(auth, "http://localhost:9090");
 export class LoginComponent implements OnInit {
 
   constructor(private httpClient: HttpClient, private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {
-
+    //private database: Database,
   }
 
   ngOnInit(): void { }
 
   loginHandler(form: NgForm) {
-    
+
+    // const starCountRef = ref(this.database, 'users/' + form.value.email);
+    // onValue(starCountRef, (snapshot)=>{
+    //   const data = snapshot.val();
+    //   console.log(data);
+
+    //   alert(data.firstName);
+    // })
+
     let firstName = form.value.name;
 
     const loginEmailPassword = async () => {
@@ -54,17 +64,17 @@ export class LoginComponent implements OnInit {
 
     this.httpClient
       .get(
-        'https://angular-crypto-test-default-rtdb.firebaseio.com/users.json',
+        'https://beauty-salon-firebase-default-rtdb.europe-west1.firebasedatabase.app/users.json',
+        //'https://angular-crypto-test-default-rtdb.firebaseio.com/users.json',
         {
           params: new HttpParams()
-            .set('orderBy', '"email"')
+            //.set('orderBy', '"email"')
             .set('equalTo', `"${form.value.email}"`)
 
         },
       )
       .subscribe((user) => {
-        console.log(user),
-          firstName == `"${form.value.name}"`
+        console.log(user)
       });
 
     this.authService.user = {

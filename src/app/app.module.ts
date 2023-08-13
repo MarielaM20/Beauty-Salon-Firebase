@@ -30,9 +30,8 @@ import { environment } from 'src/environments/environment';
     //AngularFireDatabaseModule,
     CoreModule,
     HttpClientModule,
-    SharedModule,
     ViewsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     appInterceptorProvider
