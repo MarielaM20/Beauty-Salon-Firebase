@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { emailValidator } from 'src/app/shared/validators';
-import { AuthService } from '../auth.service';
-import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../shared/services/auth.service';
+//import { HttpClient } from '@angular/common/http';
+import { getDatabase, ref, set } from "firebase/database";
+import { getFirestore, collection, doc } from "firebase/firestore";
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +24,7 @@ export class ProfileComponent {
     email: ['', [Validators.required, emailValidator(['bg', 'com'])]]
   })
 
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router, private HttpClient: HttpClient, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {
     this.formData.setValue(this.user);
   }
 
@@ -32,38 +34,53 @@ export class ProfileComponent {
       return;
     }
 
-    this.HttpClient.post("https://beauty-salon-firebase-default-rtdb.europe-west1.firebasedatabase.app/appointments.json",
-      this.formAppointment.value
+    const fs = getFirestore();
+
+    const newRef = doc(collection(fs, "appointments"));
+
+    const db = getDatabase();
+    set(ref(db, 'appointments/' + newRef.id), this.formAppointment.value);
+
+    this.authService.readAppointmentDataFromDB(newRef.id);
+    
+    
+    /*this.HttpClient.post("https://beauty-salon-firebase-default-rtdb.europe-west1.firebasedatabase.app/appointments.json",
+    this.formAppointment.value
     )
-      .subscribe(
+    .subscribe(
         (res) => {
           console.log(res);
         },
         (err) => {
           console.log(err);
         }
-      );
-
-    const { firstName, lastName, email, phone } = this.formData.value;
-
-    this.authService.user = {
-      firstName, lastName, email, phone
-    } as any;
-
-    this.router.navigate(['/views/appointmentMessage']);
-  }
-
-
-
-  showEditMode = false;
-
-  get user() {
-    const { firstName, lastName, email, phone } = this.authService.user!;
+        );
+        */
+       
+       this.router.navigate(['/views/appointmentMessage']);
+      }
+      
+      showEditMode = false;
+      
+      get user() {
+        const { firstName, lastName, email, phone } = this.authService.userData!;
     return {
       firstName,
       lastName,
       email,
       phone
+    };
+  }
+
+  get appointment() {
+    const { date, hour, firstName, lastName, service, email } = this.authService.appointmentData!;
+    return {
+      date,
+      hour,
+      firstName,
+      lastName,
+      service,
+      email
     };
   }
 
@@ -84,12 +101,20 @@ export class ProfileComponent {
       return;
     }
 
-    const { firstName, lastName, email, phone } = this.formData.value;
+    let userId: string = this.authService.getCurrentUserId();
+    //console.log('userID',userId);
+    //console.log('form data');
+    //console.log(this.formData.value);
+    this.authService.writeUserDataToDB(
+        userId,
+        this.formData.value.email||'',
+        this.formData.value.firstName||'',
+        this.formData.value.lastName||'',
+        this.formData.value.phone||''
+        )
 
-    this.authService.user = {
-      firstName, lastName, email, phone
-    } as any;
-
+    this.authService.readUserDataFromDB(userId);
+    
     this.toggleEditMode();
   }
 

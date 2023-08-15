@@ -42,26 +42,6 @@
     margin: 50px 70px 0 70px;
 }
 
-.box {
-    display: flex;
-    margin-left: 3%;
-}
-
-.box .dream {
-    width: 95%;
-}
-
-.box .dream img {
-    width: 90%;
-    padding-bottom: 30px;
-    border-radius: 15px;
-}
-
-.box a{
-    text-decoration: none;
-    color: #fff;
-}
-
 .prices {
     text-align: center;
     background: rgba(255, 255, 255, 0.9);
@@ -92,7 +72,45 @@ img:hover {
 }
 
 
-button{
+.box {
+    display: flex;
+    margin-left: 3%;
+}
+
+.box .dream {
+    width: 95%;
+}
+
+.box .dream img {
+    width: 90%;
+    padding-bottom: 30px;
+    border-radius: 15px;
+}
+
+.box a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dream {
+    position: relative;
+    width: 50%;
+}
+
+.middle {
+    transition: .5s ease;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.dream:hover .middle {
+    opacity: 1;
+}
+
+
+button {
     font-size: 16px;
     letter-spacing: 1px;
     padding: 15px 60px 10px 75px;
@@ -105,9 +123,10 @@ button{
     max-width: 70%;
     color: #fff;
     margin-bottom: 20px;
-  
-  }
-  button:after{
+
+}
+
+button:after {
     content: "";
     background-color: #333;
     width: 100%;
@@ -117,27 +136,9 @@ button{
     top: 7px;
     left: 7px;
     transition: 0.2s;
-  }
-  
-  button:hover:after {
+}
+
+button:hover:after {
     top: 0px;
     left: 0px;
-  }
-
-  .dream {
-    position: relative;
-    width: 50%;
-  }
-
-  .middle {
-    transition: .5s ease;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-  }
-
-  
-  .dream:hover .middle {
-    opacity: 1;
-  }
+}

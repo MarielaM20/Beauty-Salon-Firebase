@@ -2,7 +2,7 @@
     <div class="container">
         <h2 class="title2">Login</h2>
 
-        <form #form="ngForm" (ngSubmit)="loginHandler(form)">
+        <form #form="ngForm" >
             <div class="user-details">
                 
                 <!-- <div class="input-box">
@@ -19,7 +19,7 @@
 
                 <div class="input-box">
                     <label for="email" class="details">Email</label>
-                    <input #email="ngModel" ngModel type="email" name="email" id="email"
+                    <input #email="ngModel" ngModel type="email" #userName name="email" id="email"
                         placeholder="Enter your email..." required [appEmail]="['bg', 'com']">
 
                     <ng-container *ngIf="email">
@@ -34,7 +34,7 @@
 
                 <div class="input-box">
                     <label for="password" class="details">Password</label>
-                    <input #password="ngModel" ngModel type="password" name="password" id="password"
+                    <input #password="ngModel" ngModel type="password" #userPassword name="password" id="password"
                         placeholder="Enter your password..." required [minlength]="6">
 
                     <ng-container *ngIf="password">
@@ -54,7 +54,7 @@
             </div>
 
             <div class="button">
-                <input [disabled]="form.invalid" type="submit" value="Login">
+                <input [disabled]="form.invalid" type="submit" value="Login" (click)="authService.SignIn(userName.value, userPassword.value)">
             </div>
         </form>
     </div>

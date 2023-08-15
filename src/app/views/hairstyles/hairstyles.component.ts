@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-hairstyles',
   templateUrl: './hairstyles.component.html',
   styleUrls: ['./hairstyles.component.scss']
 })
-export class HairstylesComponent implements OnInit {
+export class HairstylesComponent{
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
+
+  get isLoggedIn(){
+    return this.authService.isLoggedIn;
   }
 
 }

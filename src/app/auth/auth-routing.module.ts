@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
-import { AuthActivate } from "../shared/guards/auth.activate";
+import { AuthGuard } from "../shared/guards/auth.activate";
 import { LoginComponent } from "./login/login.component";
 import { LogoutComponent } from "./logout/logout.component";
 import { ProfileComponent } from "./profile/profile.component";
@@ -10,7 +10,7 @@ const routes: Routes = [
     {
         path: 'auth/login',
         component: LoginComponent,
-        canActivate: [AuthActivate],
+        canActivate: [AuthGuard],
         data: {
             title: 'Login',
             loginRequired: false
@@ -19,7 +19,7 @@ const routes: Routes = [
     {
         path: 'auth/register',
         component: RegisterComponent,
-        canActivate: [AuthActivate],
+        canActivate: [AuthGuard],
         data: {
             title: 'Register',
             loginRequired: false
@@ -28,7 +28,7 @@ const routes: Routes = [
     {
         path: 'auth/logout',
         component: LogoutComponent,
-        canActivate: [AuthActivate],
+        canActivate: [AuthGuard],
         data: {
             loginRequired: true
         }
@@ -36,7 +36,7 @@ const routes: Routes = [
     {
         path: 'auth/profile',
         component: ProfileComponent,
-        canActivate: [AuthActivate],
+        canActivate: [AuthGuard],
         data: {
             title: 'Profile',
             loginRequired: true

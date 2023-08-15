@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-haircut',
@@ -7,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class HaircutComponent {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
+
+  get isLoggedIn(){
+    return this.authService.isLoggedIn;
+  }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
+
 
 @Component({
   selector: 'app-navigation',
@@ -15,7 +16,7 @@ export class NavigationComponent {
   }
   
   get user(){
-    return this.authService.user;
+    return this.authService.userData;
   }
   
   constructor(private authService: AuthService, private router: Router) { }

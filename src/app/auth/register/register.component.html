@@ -2,11 +2,11 @@
     <div class="container">
         <h2 class="title2">Register</h2>
 
-        <form [formGroup]="form" (ngSubmit)="registerHandler()">
+        <form [formGroup]="form" >
             <div class="user-details">
                 <div class="input-box">
                     <label for="firstName">First name:</label>
-                    <input class="input-error" type="text" formControlName="firstName" id="firstName"
+                    <input class="input-error" type="text" formControlName="firstName" id="firstName" #firstName
                         placeholder="Enter your first name...">
 
                     <ng-container *ngIf="form.get('firstName')?.touched">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="input-box">
                     <label for="lastName">Last name:</label>
-                    <input class="input-error" type="text" formControlName="lastName" id="lastName"
+                    <input class="input-error" type="text" formControlName="lastName" id="lastName" #lastName
                         placeholder="Enter your last name...">
 
                     <ng-container *ngIf="form.get('lastName')?.touched">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="input-box">
                     <label for="email">Email:</label>
-                    <input type="email" formControlName="email" id="email" placeholder="Enter your email...">
+                    <input type="email" formControlName="email" id="email" #userName placeholder="Enter your email...">
 
                     <ng-container *ngIf="form.get('email')?.touched">
                         <p class="error" *ngIf="form.get('email')?.errors?.['required']">
@@ -45,7 +45,7 @@
 
                 <div class="input-box">
                     <label for="tel">Phone:</label>
-                    <input type="text" formControlName="tel" id="tel" placeholder="0888 88 88 88">
+                    <input type="text" formControlName="tel" id="tel" #phone placeholder="0888 88 88 88">
                     
                     <ng-container *ngIf="form.get('tel')?.touched">
                         <p class="error" *ngIf="form.get('tel')?.errors?.['required']">
@@ -62,7 +62,7 @@
 
                     <div class="input-box">
                         <label for="password">Password:</label>
-                        <input type="password" formControlName="password" id="password" placeholder="******">
+                        <input type="password" formControlName="password" id="password" #userPassword placeholder="******">
 
                         <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
                             <p class="error" *ngIf="form.get('pass')?.get('password')?.errors?.['required']">
@@ -102,7 +102,7 @@
             </div>
 
             <div class="button">
-                <input [disabled]="form.invalid" type="submit" value="Register">
+                <input [disabled]="form.invalid" type="submit" value="Register" (click)="authService.SignUp(userName.value, userPassword.value,firstName.value,lastName.value,phone.value)">
             </div>
         </form>
     </div>

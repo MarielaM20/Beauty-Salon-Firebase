@@ -13,6 +13,7 @@ ul{
     display: flex;
     background: #fff;
     padding-left: 0;
+    font-size: 20px;
 }
 ul li{
     width: 100%;
@@ -23,7 +24,7 @@ ul li{
 ul li a{
     color: #000;
     text-decoration: none;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     display: block;
 }
 
