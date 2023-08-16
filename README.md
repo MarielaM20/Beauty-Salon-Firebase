@@ -5,6 +5,8 @@ This project is generated with [Angular CLI](https://github.com/angular/angular-
 ## General info
 
 This project represents a website for a beauty salon. 
+There are pages with restricted access based on whether the user is logged in or not.
+The site uses firebase for database.
 
 ## Setup
 
@@ -22,4 +24,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. 
+Run `ng generate component component-name` to generate a new component.
+
+## Build
+Run `ng build` to build the project. The build artifacts will be stored in the dist/ directory.
