@@ -2,20 +2,8 @@
     <div class="container">
         <h2 class="title2">Login</h2>
 
-        <form #form="ngForm" >
+        <form #form="ngForm">
             <div class="user-details">
-                
-                <!-- <div class="input-box">
-                    <label for="name" class="details">Name</label>
-                    <input #name="ngModel" ngModel type="name" name="name" id="name"
-                        placeholder="Enter your name..." required>
-
-                    <ng-container *ngIf="name">
-                        <p class="error" *ngIf="name.errors?.['required']">
-                            Name is required!
-                        </p>
-                    </ng-container>
-                </div> -->
 
                 <div class="input-box">
                     <label for="email" class="details">Email</label>
@@ -54,8 +42,14 @@
             </div>
 
             <div class="button">
-                <input [disabled]="form.invalid" type="submit" value="Login" (click)="authService.SignIn(userName.value, userPassword.value)">
+                <input [disabled]="form.invalid" type="submit" value="Login"
+                    (click)="authService.SignIn(userName.value, userPassword.value)">
             </div>
+
+            <ng-container *ngIf="error" >
+                <p class="error1">Invalid email or password!</p>
+            </ng-container>
+
         </form>
     </div>
 </section>

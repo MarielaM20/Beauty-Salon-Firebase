@@ -15,15 +15,15 @@
       <aside>
         <h2>Send us a comment HERE <img src="../../../assets/Images/email.png"></h2>
 
-        <form [formGroup]="form" (ngSubmit)="contactHandler()">
+        <form [formGroup]="commentForm" (ngSubmit)="contactHandler()">
           <div class="user-details">
             <div class="input-box">
               <label for="firstName">First name:</label>
               <input class="input-error" type="text" formControlName="firstName" id="firstName"
                 placeholder="Enter your first name...">
 
-              <ng-container *ngIf="form.get('firstName')?.touched">
-                <p class="error" *ngIf="form.get('firstName')?.errors?.['required']">
+              <ng-container *ngIf="commentForm.get('firstName')?.touched">
+                <p class="error" *ngIf="commentForm.get('firstName')?.errors?.['required']">
                   First name is required!
                 </p>
               </ng-container>
@@ -34,8 +34,8 @@
               <input class="input-error" type="text" formControlName="lastName" id="lastName"
                 placeholder="Enter your last name...">
 
-              <ng-container *ngIf="form.get('lastName')?.touched">
-                <p class="error" *ngIf="form.get('lastName')?.errors?.['required']">
+              <ng-container *ngIf="commentForm.get('lastName')?.touched">
+                <p class="error" *ngIf="commentForm.get('lastName')?.errors?.['required']">
                   Last name is required!
                 </p>
               </ng-container>
@@ -45,11 +45,11 @@
               <label for="email">Email:</label>
               <input type="email" formControlName="email" id="email" placeholder="Enter your email...">
 
-              <ng-container *ngIf="form.get('email')?.touched">
-                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+              <ng-container *ngIf="commentForm.get('email')?.touched">
+                <p class="error" *ngIf="commentForm.get('email')?.errors?.['required']">
                   Email is required!
                 </p>
-                <p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">
+                <p class="error" *ngIf="commentForm.get('email')?.errors?.['emailValidator']">
                   Email is not valid!
                 </p>
               </ng-container>
@@ -60,8 +60,8 @@
               <label for="comment">Comment:</label>
               <input type="text" formControlName="comment" id="comment" placeholder="Enter your comment...">
 
-              <ng-container *ngIf="form.get('comment')?.touched">
-                <p class="error" *ngIf="form.get('comment')?.errors?.['required']">
+              <ng-container *ngIf="commentForm.get('comment')?.touched">
+                <p class="error" *ngIf="commentForm.get('comment')?.errors?.['required']">
                   Comment is required!
                 </p>
               </ng-container>

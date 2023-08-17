@@ -14,6 +14,8 @@ import { getDatabase, ref, set, onValue } from "firebase/database";
 export class AuthService {
   userData: any; // Save logged in user data
   appointmentData: any;
+  errorData: any;
+  commentData: any;
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -61,7 +63,8 @@ export class AuthService {
         }
       })
       .catch((error) => {
-        window.alert(error.message);
+        //window.alert(error.message);
+        this.errorData = error.message;
       });
   }
 
@@ -89,7 +92,6 @@ export class AuthService {
       console.log('user data from DB');
       console.log(data);
     });
-
   }
 
   readAppointmentDataFromDB(appointmentId: string) {
@@ -102,6 +104,32 @@ export class AuthService {
       //localStorage.setItem('user', JSON.stringify(this.appointmentData));
       //JSON.parse(localStorage.getItem('appointment')!);
       console.log('appointment data from DB');
+      console.log(data);
+    });
+  }
+
+  writeCommentDataToDB(commentId: string, firstName: string, lastName: string, email: string, comment: string) {
+    if (commentId == '') return;
+    const db = getDatabase();
+    set(ref(db, 'comments/' + commentId), {
+      uid: commentId,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      comment: comment
+    });
+  }
+
+  readCommentDataFromDB(commentId: string) {
+    const db = getDatabase();
+    console.log('reading comment from DB', commentId);
+    const commentRef = ref(db, 'comments/' + commentId);
+    onValue(commentRef, (snapshot) => {
+      const data = snapshot.val();
+      this.commentData = data;
+      //localStorage.setItem('user', JSON.stringify(this.appointmentData));
+      //JSON.parse(localStorage.getItem('appointment')!);
+      console.log('comment data from DB');
       console.log(data);
     });
   }
@@ -130,7 +158,8 @@ export class AuthService {
         }
       })
       .catch((error) => {
-        window.alert(error.message);
+        //window.alert(error.message);
+        this.errorData = error.message;
       });
 
 

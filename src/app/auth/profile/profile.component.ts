@@ -35,35 +35,18 @@ export class ProfileComponent {
     }
 
     const fs = getFirestore();
-
     const newRef = doc(collection(fs, "appointments"));
-
     const db = getDatabase();
     set(ref(db, 'appointments/' + newRef.id), this.formAppointment.value);
-
     this.authService.readAppointmentDataFromDB(newRef.id);
-    
-    
-    /*this.HttpClient.post("https://beauty-salon-firebase-default-rtdb.europe-west1.firebasedatabase.app/appointments.json",
-    this.formAppointment.value
-    )
-    .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.log(err);
-        }
-        );
-        */
-       
-       this.router.navigate(['/views/appointmentMessage']);
-      }
-      
-      showEditMode = false;
-      
-      get user() {
-        const { firstName, lastName, email, phone } = this.authService.userData!;
+
+    this.router.navigate(['/views/appointmentMessage']);
+  }
+
+  showEditMode = false;
+
+  get user() {
+    const { firstName, lastName, email, phone } = this.authService.userData!;
     return {
       firstName,
       lastName,
@@ -73,12 +56,12 @@ export class ProfileComponent {
   }
 
   get appointment() {
-    const { date, hour, firstName, lastName, service, email } = this.authService.appointmentData!;
+    const { date, hour, fName, lName, service, email } = this.authService.appointmentData!;
     return {
       date,
       hour,
-      firstName,
-      lastName,
+      fName,
+      lName,
       service,
       email
     };
@@ -106,15 +89,15 @@ export class ProfileComponent {
     //console.log('form data');
     //console.log(this.formData.value);
     this.authService.writeUserDataToDB(
-        userId,
-        this.formData.value.email||'',
-        this.formData.value.firstName||'',
-        this.formData.value.lastName||'',
-        this.formData.value.phone||''
-        )
+      userId,
+      this.formData.value.email || '',
+      this.formData.value.firstName || '',
+      this.formData.value.lastName || '',
+      this.formData.value.phone || ''
+    )
 
     this.authService.readUserDataFromDB(userId);
-    
+
     this.toggleEditMode();
   }
 

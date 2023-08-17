@@ -17,11 +17,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  // loginHandler(form: NgForm) {
-
-  //   const returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
-  //   this.router.navigate([returnUrl]);
-
-  // }
+  get error() {
+    const error = this.authService.errorData!;
+    return error;
+  }
 
 }

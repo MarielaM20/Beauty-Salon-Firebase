@@ -5,6 +5,11 @@ import { emailValidator } from 'src/app/shared/validators';
 import { HttpClient } from '@angular/common/http';
 
 
+import { AuthService } from '../../shared/services/auth.service';
+import { getDatabase, ref, set } from "firebase/database";
+import { getFirestore, collection, doc } from "firebase/firestore";
+
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -12,34 +17,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactsComponent {
 
-  form = this.fb.group({
+  commentForm = this.fb.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     email: ['', [Validators.required, emailValidator(['bg', 'com'])]],
     comment: ['', [Validators.required]],
   });
 
-  constructor(private router: Router, private HttpClient: HttpClient, private fb: FormBuilder, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private HttpClient: HttpClient, private fb: FormBuilder, private activatedRoute: ActivatedRoute, private authService: AuthService) {
 
   }
 
   contactHandler(): void {
 
-    if (this.form.invalid) {
+    if (this.commentForm.invalid) {
       return;
     }
 
-    this.HttpClient.post("https://beauty-salon-firebase-default-rtdb.europe-west1.firebasedatabase.app/comments.json",
-      this.form.value
-    )
-      .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    const fs = getFirestore();
+    const newRef = doc(collection(fs, "comments"));
+    const db = getDatabase();
+    set(ref(db, 'comments/' + newRef.id), this.commentForm.value);
+    this.authService.readCommentDataFromDB(newRef.id);
+
+    this.router.navigate(['/views/commentMessage']);
+
   }
 
 }

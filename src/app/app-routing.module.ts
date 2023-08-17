@@ -11,6 +11,7 @@ import { HairstylesComponent } from './views/hairstyles/hairstyles.component';
 import { MakeupComponent } from './views/makeup/makeup.component';
 import { ManicureComponent } from './views/manicure/manicure.component';
 import { PortfolioComponent } from './views/portfolio/portfolio.component';
+import { CommentMessageComponent } from './views/comment-message/comment-message.component';
 
 
 export const routes: Routes = [
@@ -86,6 +87,15 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         data: {
             title: 'Appointment made',
+            loginRequired: true
+        }
+    },
+    {
+        path: 'views/commentMessage',
+        component: CommentMessageComponent,
+        canActivate: [AuthGuard],
+        data: {
+            title: 'Comment made',
             loginRequired: true
         }
     },

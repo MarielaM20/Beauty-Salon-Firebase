@@ -105,5 +105,10 @@
                 <input [disabled]="form.invalid" type="submit" value="Register" (click)="authService.SignUp(userName.value, userPassword.value,firstName.value,lastName.value,phone.value)">
             </div>
         </form>
+
+        <ng-container *ngIf="error" >
+            <p class="error2">The email have been taken!</p>
+        </ng-container>
+
     </div>
 </section>

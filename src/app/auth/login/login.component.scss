@@ -3,6 +3,7 @@
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
+    height: 550px;
 }
 
 
@@ -12,7 +13,7 @@
     font-family: 'Playfair Display',"Times New Roman",Times,Baskerville,Georgia,serif;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-bottom: 50px;
 }
 
@@ -58,6 +59,13 @@ form .user-details .input-box{
 .error{
     color: red;
     overflow-wrap: break-word;
+}
+
+.error1{
+    color: red;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .input-box1 p{

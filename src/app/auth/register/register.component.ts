@@ -30,4 +30,9 @@ export class RegisterComponent {
 
   }
 
+  get error() {
+    const error = this.authService.errorData!;
+    return error;
+  }
+
 }
